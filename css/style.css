@@ -33,6 +33,15 @@ body,html{
 padding:20px;
 margin-bottom:10px;
 }
+.navbar-brand:after {
+    content: "Beta";
+    font-size: 10px;
+    top: 20px;
+    position: absolute;
+    margin-left: -11px;
+    color: red;
+    font-weight: bold;
+}
 .tnav_header {
     padding: 0px 20px 20px 0px;
 }

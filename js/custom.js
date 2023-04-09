@@ -15,47 +15,6 @@ function suggested_price_check(d) {
     }
 }
 
-/*
-
-function loadGetData (url, cfunc, cbackparams) {
-
-    if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp = new XMLHttpRequest();
-    } else { // code for IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }    
-
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            if (cbackparams) {
-                cfunc(xmlhttp, cbackparams);
-            } else {
-                cfunc(xmlhttp);
-            }            
-        }
-    };
-
-    xmlhttp.open("GET", url, true);
-    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xmlhttp.send();
-}
-
-function domain_data( xmlhttp ) {
-    console.log(xmlhttp);
-}
-
-function check_form(form) {
-    var domain_name = 'ax';
-    var url = 'https://instantdomainsearch.com/services/name/' + domain_name;
-    var hash = 43489;
-    var limit = 1;
-    var tlds = 'com,in,net';
-    loadGetData( url + '?hash=' + hash + '&limit=' + limit + '&tlds=' + tlds, 'domain_data' );
-    return false;
-}
-
-*/
-
 
 $(document).ready(function() {
     if( $('#updateContainer').length > 0 ) {
@@ -77,6 +36,8 @@ $(document).ready(function() {
     });
     $(document).off('page:done').on('page:done', function(event, $target, status, url, data) {
         $('.hameid-loader-overlay').hide();
+        ga('set', 'page', url);
+        ga('send', 'pageview');
     });
     $(document).off('page:fail').on('page:fail', function(event, $target, status, url, error, code) {
         alert("Sorry! Page could't be loaded");

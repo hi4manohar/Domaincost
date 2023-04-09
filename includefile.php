@@ -153,16 +153,16 @@ function instant_domain_suggestion( $curl, $domain, $tld ) {
 }
 
 function price_data( $tld ) {
-	if( $_SERVER['SERVER_ADDR'] == '127.0.0.1' ) {
+	if( isset($_SERVER['SERVER_ADDR'])?$_SERVER['SERVER_ADDR']:gethostbyname(gethostname()) == '127.0.0.1' ) {
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
 		$dbname = "domainsprice";
 	} else {
-		$servername = "localhost";
-		$username = "bestdomainprice";
-		$password = "HwG}+KAAJj+5";
-		$dbname = "bestdomainprice";			
+		$servername = "hi4manohar10060.ipagemysql.com";
+		$username = "user_noticemate";
+		$password = "2/.&H96*g?=Cb9&;f-h?";
+		$dbname = "domaincost";
 	}
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -191,8 +191,10 @@ function price_data( $tld ) {
 $domain_error = $tld_error = "";
 $domain = $tld = "";
 $domain_status = "";
-$tlds = array('.com', '.org', '.net', '.us', '.info', '.co', '.co.in', '.in', '.uk', '.net.in');
-$tlds_without_dots = array('com', 'org', 'net', 'us', 'info', 'co', 'co.in', 'in', 'uk', 'net.in');
+$tlds = array('.com', '.org', '.net');
+$tlds_without_dots = array('com', 'org', 'net');
+//$tlds = array('.com', '.org', '.net', '.us', '.info', '.co', '.co.in', '.in', '.uk', '.net.in');
+//$tlds_without_dots = array('com', 'org', 'net', 'us', 'info', 'co', 'co.in', 'in', 'uk', 'net.in');
 $domain_av_status = false;
 
 if ( $_SERVER["REQUEST_METHOD"] === "GET" && ( isset($_GET["domain"]) || isset($_GET['tld']) ) ) {
